@@ -6,3 +6,4 @@ numpy
 uvicorn
 fastapi
 python-multipart
+paddlepaddle
