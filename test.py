@@ -36,9 +36,11 @@ def process_image(image_path):
     if image is None:
         raise ValueError(f"Image not found or unable to load: {image_path}")
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    print(image)
 
     # Perform OCR on the image
     result = ocr.ocr(np.array(image), det=True, rec=True)
+    print(result)
 
     # Extract coordinates, text, and confidence scores
     boxes = [line[0] for line in result[0]]
