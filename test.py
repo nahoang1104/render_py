@@ -5,6 +5,14 @@ import numpy as np
 from PIL import Image
 from io import BytesIO
 import base64
+import psutil
+
+def log_memory_usage():
+    # Get the process ID of the current process
+    process = psutil.Process(os.getpid())
+    # Get memory usage in MB
+    memory_usage = process.memory_info().rss / (1024 * 1024)
+    print(f"Memory usage: {memory_usage:.2f} MB")
 
 # Initialize PaddleOCR
 ocr = PaddleOCR(
@@ -39,6 +47,7 @@ def process_image(image_path):
     print(image)
 
     # Perform OCR on the image
+    log_memory_usage()
     result = ocr.ocr(np.array(image), det=True, rec=True)
     print(result)
 
