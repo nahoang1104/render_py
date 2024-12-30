@@ -38,10 +38,10 @@ def process_image(image_path):
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
     # Resize the image by 50%
-    width = int(image.shape[1] * 0.5)  # 50% of original width
-    height = int(image.shape[0] * 0.5)  # 50% of original height
-    dim = (width, height)
-    image = cv2.resize(image, dim, interpolation=cv2.INTER_AREA)  # Resize the image
+    #width = int(image.shape[1] * 0.5)  # 50% of original width
+    #height = int(image.shape[0] * 0.5)  # 50% of original height
+    #dim = (width, height)
+    #image = cv2.resize(image, dim, interpolation=cv2.INTER_AREA)  # Resize the image
     print(image)
 
     # Perform OCR on the image
