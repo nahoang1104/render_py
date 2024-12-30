@@ -3,20 +3,12 @@ from fastapi.responses import JSONResponse
 import os
 import logging
 from test import process_image  # Assuming process_image is the function in test.py that handles OCR
-import psutil
 
 app = FastAPI()
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-def log_memory_usage():
-    # Get the process ID of the current process
-    process = psutil.Process(os.getpid())
-    # Get memory usage in MB
-    memory_usage = process.memory_info().rss / (1024 * 1024)
-    print(f"Memory usage: {memory_usage:.2f} MB")
 
 @app.post("/upload/")
 async def upload_image(file: UploadFile = File(...)):
