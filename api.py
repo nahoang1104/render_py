@@ -23,7 +23,6 @@ async def upload_image(file: UploadFile = File(...)):
             f.write(await file.read())
 
         # Process the image using the existing OCR functionality
-        log_memory_usage()
         result = process_image(file_location)
 
         # Clean up the saved file
